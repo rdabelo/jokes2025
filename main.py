@@ -42,18 +42,24 @@ def punch_line(category):
             input("Knock Knock ")
             input("Broken pencil ")
             print("Nevermind — it's pointless!")
-
-def ask_continue():
-    return input("Do you want to hear another joke? (yes/no) ")
-punch_line(question)   
-if joke == "finished":
-    rate = int(input("Please rate our game 1-10! "))
-    final_score = int(rate * 10)
-    print(str(final_score) + " percent satisfaction rate")
-    friend = input("Would you recommend this game to a friend? ")
-
-    if friend == "yes" or friend == "maybe":
-        print("Thanks, we appreciate it. ")
+punch_line(question)
+while True:
+    def ask_continue():
+        return input("Do you want to hear another joke? (yes/no) ")
+    joke = ask_continue()
+    if joke == "yes":
+        question = input("Do you want to hear a joke about robbers, tanks, or pencils? ")
+        punch_line(question)
     else:
+        break
+joke == "finished"
+rate = int(input("Please rate our game 1-10! "))
+final_score = int(rate * 10)
+print(str(final_score) + " percent satisfaction rate")
+friend = input("Would you recommend this game to a friend? ")
+
+if friend == "yes" or friend == "maybe":
+        print("Thanks, we appreciate it. ")
+else:
         print("Sorry you did not enjoy it. ")
 
