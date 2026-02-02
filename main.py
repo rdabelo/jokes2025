@@ -1,30 +1,51 @@
 
-
+# Gael Martinez and Rodelo Abelo
 
 # make this performance task ready for submission
 # To give the user a fun experience hearing knock knock jokes
+# question = input("Do you want to hear a joke about robbers, tanks, or pencils? ")
+    # if question == "robbers":
+    #     input("Knock Knock ")
+    #     input("Calder")
+    #     print("Calder police - I've been robbed!")
+    #     joke = input("Do you want to hear another joke or are you finished? ")
+    # elif question == "tanks":
+    #     input("Knock Knock ")
+    #     input("Tank ")
+    #     input("You are welcome! ")
+    #     joke = input("Do you want to hear another joke or are you finished? ")
+    # elif question == "pencils":
+    #     input("Knock Knock ")
+    #     input("Broken pencil ")
+    #     input("Nevermind, it's pointless! ")
+    #     joke = input("Do you want to hear another joke or are you finished? ")(old code)
+
+
+jokelist = ["robbers", "tanks", "pencils"]
 
 joke = input("Do you want to hear a joke? ")
 if joke == "no":
     print("Okay suit yourself!")
-while joke == "yes":
+elif joke == "yes":
     print("Great, Let's Play")
-    question = input("Do you want to hear a joke about robbers, tanks, or pencils? ")
-    if question == "robbers":
-        input("Knock Knock ")
-        input("Calder")
-        print("Calder police - I've been robbed!")
-        joke = input("Do you want to hear another joke or are you finished? ")
-    elif question == "tanks":
-        input("Knock Knock ")
-        input("Tank ")
-        input("You are welcome! ")
-        joke = input("Do you want to hear another joke or are you finished? ")
-    elif question == "pencils":
-        input("Knock Knock ")
-        input("Broken pencil ")
-        input("Nevermind, it's pointless! ")
-        joke = input("Do you want to hear another joke or are you finished? ")
+question = input("Do you want to hear a joke about robbers, tanks, or pencils? ")
+def punch_line(category):
+        if category == "robbers":
+            input("Knock Knock ")
+            input("Calder ")
+            print("Calder police — I've been robbed!")
+        elif category == "tanks":
+            input("Knock Knock ")
+            input("Tank ")
+            print("You're welcome!")
+        elif category == "pencils":
+            input("Knock Knock ")
+            input("Broken pencil ")
+            print("Nevermind — it's pointless!")
+
+def ask_continue():
+    return input("Do you want to hear another joke? (yes/no) ")
+punch_line(question)   
 if joke == "finished":
     rate = int(input("Please rate our game 1-10! "))
     final_score = int(rate * 10)
@@ -35,3 +56,4 @@ if joke == "finished":
         print("Thanks, we appreciate it. ")
     else:
         print("Sorry you did not enjoy it. ")
+
