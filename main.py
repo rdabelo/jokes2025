@@ -178,7 +178,7 @@ if joke == "no":
     print("Okay suit yourself!")
 elif joke == "yes":
     print("Great, let's play!")
-#parameter= joketype     #
+#parameter= joketype     
 def punchline(joketype):
     if joketype in jokes:
         print(jokes[joketype])
@@ -193,6 +193,8 @@ def jokeresponse(jokelist):
             punchline(item)
             jokelist.remove(item)
             return
+        else:
+            continue
     else:
         print("That joke category doesn't exist. Try again!")
 #This function displays the remaining joke categories, asks the user to choose one and it will check if the user's input is still valid.
