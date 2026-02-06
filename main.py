@@ -163,53 +163,57 @@
 #     print("Sorry you did not enjoy it.")
 
 
+
 jokelist = ["robbers", "tanks", "pencils"]
 
 jokes = {
     "robbers": "Why did the robber steal a painting? ----> He's been framed!",
     "tanks": "Why don't tanks ever get lost? ----> They always follow on a heavy path!",
     "pencils": "What does a dull pencil and a glass hammer have in common ----> It has no point!"
-}
-def ask_continue():
-    return input("Do you want to hear another joke? (yes/no) ")
-def punch_line(category):
-    if category in jokes:
-        print(jokes[category])
-    else:
-        print("That joke category doesn't exist!")
-def tell_joke(jokelist):
-    print("Available joke categories:", jokelist)
-    question = input("Which joke do you want to hear?")
-    for item in jokelist:               
-        if question == item:            
-            punch_line(item)
-            jokelist.remove(item)      
-            return
-    else:
-        print("That joke category doesn't exist. Try again!")
+} # Defines jokelist and its options and made a dictionary that contains the punchlines for each joke category 
+# Then when the code runs, it will ask the user if they want to hear a joke and if they say yes it will ask them to choose between a joke category.
 
 joke = input("Do you want to hear a joke? (yes/no) ")
 if joke == "no":
     print("Okay suit yourself!")
 elif joke == "yes":
     print("Great, let's play!")
+#parameter= joketype     #
+def punchline(joketype):
+    if joketype in jokes:
+        print(jokes[joketype])
+    else:
+        print("That joke category doesn't exist!")
+# Parameter for jokeresponse is jokelist and the argument is when its called upon in the loop.
+def jokeresponse(jokelist):
+    print("Joke categories:", jokelist)
+    question = input("Which joke do you want to hear? ")
+    for item in jokelist:
+        if question == item:
+            punchline(item)
+            jokelist.remove(item)
+            return
+    else:
+        print("That joke category doesn't exist. Try again!")
+#This function displays the remaining joke categories, asks the user to choose one and it will check if the user's input is still valid.
+# Another joke would have no parameters or arguments
+def anotherjoke():
+    return input("Do you want to hear another joke? (yes/no) ")
 
-while jokelist:
-    tell_joke(jokelist)
-
+while jokelist: #This loop keeps running until the jokelist is empty
+    jokeresponse(jokelist) # Parameter would be jokelist and the argument is when its called on to decide if it stops or continues the game
     if not jokelist:
         print("No more joke categories left. Goodbye!")
         break
-    elif ask_continue() != "yes":
+    elif anotherjoke() != "yes": # Makes it so if the user wants to hear another joke it goes back to the start of the game with != being used to check if the input is not yes.
         print("Okay, no more jokes. Goodbye!")
         break
 
-rate = int(input("Please rate our game 1-10! "))
-final_score = rate * 10
-print(f"{final_score} percent satisfaction rate")
-
+rate = int(input("Please rate our game 1-10! ")) #This asks to rate the jokes and their experience
+finalscore = rate * 10
+print(f"{finalscore} percent satisfaction rate")
 friend = input("Would you recommend this game to a friend? ")
 if friend == "yes":
     print("Thanks, we appreciate brotato chip.")
 else:
-    print("Sorry,go home.")
+    print("Sorry, go home.")
